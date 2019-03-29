@@ -1,0 +1,13 @@
+    upstream myapp1 {
+        server ${APP_NAME1}:8080;
+        server ${APP_NAME2}:8080;
+    }
+
+    server {
+        listen ${NGINX_PORT};
+        server_name ${NGINX_HOST};
+        location /sample {
+            proxy_pass http://myapp1;
+        }
+    }
+

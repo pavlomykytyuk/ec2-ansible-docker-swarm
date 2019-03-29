@@ -1,0 +1,57 @@
+version: '3.5'
+
+services:
+
+  balancer:
+    image: nginx:alpine
+    volumes:
+      - ./logs:/var/log/nginx/
+    networks:
+     - my_network
+    ports:
+     - target: 80
+       published: 80
+       protocol: tcp
+       mode: host
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          # for example 'labels.nginx == true' (docker node update --label-add nginx=true nodename)
+          #- node.labels.nginx == true
+          - node.role == manager
+    configs:
+      - source: nginx_config
+        target: /etc/nginx/nginx.conf
+
+  webapp:
+    image: pavlomykytyuk/sampleapp:jdk8-tomcat8.5-alpine
+    networks:
+     - my_network
+    healthcheck:
+      test: curl -f http://localhost:8080/sample || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    deploy:
+      replicas: 4
+      endpoint_mode: dnsrr
+
+
+  app:
+    image: containous/whoami
+    networks:
+     - my_network
+    deploy:
+      replicas: 4
+      endpoint_mode: dnsrr
+      
+
+configs:
+  nginx_config:
+    file: ./nginx.conf
+
+networks:
+  my_network:
+    driver: overlay

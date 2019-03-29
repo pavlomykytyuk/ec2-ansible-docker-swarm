@@ -1,0 +1,2 @@
+2019/03/25 21:35:23 [error] 7#7: *1 "/etc/nginx/html/index.html" is not found (2: No such file or directory), client: 172.25.164.1, server: 172.25.61.57, request: "GET / HTTP/1.1", host: "172.25.61.57"
+2019/03/25 21:48:56 [error] 7#7: *1 "/etc/nginx/html/index.html" is not found (2: No such file or directory), client: 172.25.164.1, server: 172.25.61.57, request: "GET / HTTP/1.1", host: "172.25.61.57"

@@ -1,0 +1,5 @@
+2019/03/28 22:07:33 [error] 6#6: *1 "/etc/nginx/html/index.html" is not found (2: No such file or directory), client: 172.25.163.249, server: localhost, request: "GET / HTTP/1.1", host: "172.25.61.57"
+2019/03/28 22:08:09 [error] 6#6: *1 "/etc/nginx/html/index.html" is not found (2: No such file or directory), client: 172.25.163.249, server: localhost, request: "GET / HTTP/1.1", host: "172.25.61.57"
+2019/03/29 17:37:22 [error] 6#6: *1 "/etc/nginx/html/index.html" is not found (2: No such file or directory), client: 172.25.0.98, server: localhost, request: "GET / HTTP/1.0"
+2019/03/29 17:39:51 [error] 6#6: *2 "/etc/nginx/html/index.html" is not found (2: No such file or directory), client: 172.25.0.98, server: localhost, request: "GET / HTTP/1.0"
+2019/03/29 17:39:51 [error] 6#6: *3 "/etc/nginx/html/index.html" is not found (2: No such file or directory), client: 172.25.0.98, server: localhost, request: "GET / HTTP/1.1", host: "traininglab.eleks-software.local"
